@@ -8,43 +8,12 @@
 
 }
 
-@mixin input-size($ms, $txt) {
-
-  padding: ms($ms - 1) ms($ms);
-  @include font-size($txt);
-
-}
-
-@mixin input-style(
-$bg,
-$color,
-$shadow-color,
-$focus-color,
-$placeholder-color,
-$border-radius) {
-
-  background-color: $bg;
-  color: $color;
-  box-shadow: inset 0 0 0 .1rem $shadow-color;
-  border-radius: $border-radius;
-
-  &::placeholder {
-    color: $placeholder-color;
-  }
-
-  &:focus {
-    box-shadow: inset 0 0 0 .1rem $focus-color;
-    outline: .1rem solid $focus-color;
-    transition: outline-width .3s;
-  }
-}
-
 input {
 
   @extend %fragment-input;
 
   &.primary {
-    @include input-style(
+    @include extend-input-style(
     #fff,
     #222,
     #bdc3c7,
@@ -54,15 +23,15 @@ input {
   }
 
   &.small {
-    @include input-size(-1, 12px);
+    @include extend-input-size(-1, 12px);
   }
 
   &.medium {
-    @include input-size(-1, 14px);
+    @include extend-input-size(-1, 14px);
   }
 
   &.large {
-    @include input-size(0, 18px);
+    @include extend-input-size(0, 18px);
   }
 }
 

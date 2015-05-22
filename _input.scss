@@ -39,3 +39,34 @@
   }
 
 }
+
+@mixin extend-input-size($ms, $txt) {
+
+  padding: ms($ms - 1) ms($ms);
+  @include font-size($txt);
+
+}
+
+@mixin extend-input-style(
+$bg,
+$color,
+$shadow-color,
+$focus-color,
+$placeholder-color,
+$border-radius) {
+
+  background-color: $bg;
+  color: $color;
+  box-shadow: inset 0 0 0 .1rem $shadow-color;
+  border-radius: $border-radius;
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+
+  &:focus {
+    box-shadow: inset 0 0 0 .1rem $focus-color;
+    outline: .1rem solid $focus-color;
+    transition: outline-width .3s;
+  }
+}
